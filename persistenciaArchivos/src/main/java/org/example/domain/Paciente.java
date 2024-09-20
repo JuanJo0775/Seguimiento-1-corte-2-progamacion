@@ -7,16 +7,24 @@ public class Paciente implements Serializable {
     private int id;
     private String nombre;
     private int edad;
+    private String apellido;
+    private String genero;
+    private String direccion;
+    private int telefono;
 
     // Constructores, getters y setters
 
     public Paciente() {
     }
 
-    public Paciente(int id, String nombre, int edad) {
+    public Paciente(int id, String nombre, int edad, String apellido, String genero, String direccion, int telefono) {
         this.id= id;
         this.nombre = nombre;
         this.edad = edad;
+        this.genero = genero;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
     }
 
     public int getId() {
@@ -43,12 +51,48 @@ public class Paciente implements Serializable {
         this.edad = edad;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+
     @Override
     public String toString() {
         return "Paciente{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", edad=" + edad +
+                ", apellido='" + apellido + '\'' +
+                ", genero='" + genero + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono=" + telefono +
                 '}';
     }
 }

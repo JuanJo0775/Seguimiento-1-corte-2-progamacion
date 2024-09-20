@@ -19,6 +19,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        
         boolean salir = false;
         while (!salir) {
             System.out.println("1. Listar pacientes");
@@ -47,7 +49,7 @@ public class Main {
                     salir = true;
                     break;
                 default:
-                    System.out.println("Opción inválida");
+                    System.out.println("Opción inválida \n");
             }
         }
     }
@@ -55,9 +57,9 @@ public class Main {
     private static void listarPacientes() {
         List<Paciente> pacientes = pacienteService.findAll();
         if (pacientes.isEmpty()) {
-            System.out.println("No hay pacientes registrados.");
+            System.out.println("No hay pacientes registrados. \n");
         } else {
-            System.out.println("Listado de pacientes:");
+            System.out.println("Listado de pacientes:\n");
             for (Paciente paciente : pacientes) {
                 System.out.println(paciente);
             }
@@ -65,12 +67,12 @@ public class Main {
     }
 
     private static void crearPaciente() {
-        System.out.print("Ingrese el id del paciente: ");
+        System.out.print("Ingrese el id del paciente: \n");
         int id  = scanner.nextInt();
         scanner.nextLine();
-        System.out.print("Ingrese el nombre del paciente: ");
+        System.out.print("Ingrese el nombre del paciente: \n");
         String nombre = scanner.nextLine();
-        System.out.print("Ingrese la edad del paciente: ");
+        System.out.print("Ingrese la edad del paciente: \n");
         int edad = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
 
@@ -81,20 +83,20 @@ public class Main {
 
         try {
             pacienteService.save(paciente);
-            System.out.println("paciente creado exitosamente.");
+            System.out.println("paciente creado exitosamente.\n");
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
     }
 
     private static void actualizarPaciente() {
-        System.out.print("Ingrese el ID del paciente a actualizar: ");
+        System.out.print("Ingrese el ID del paciente a actualizar: \n");
         int id = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
 
         Paciente paciente = pacienteService.findById(id);
         if (paciente == null) {
-            System.out.println("No se encontró el paciente con ID " + id);
+            System.out.println("No se encontró el paciente con ID " + id + "\n");
             return;
         }
 
@@ -113,9 +115,9 @@ public class Main {
 
         try {
             pacienteService.update(paciente);
-            System.out.println("paciente actualizado exitosamente.");
+            System.out.println("paciente actualizado exitosamente.\n");
         } catch (IllegalArgumentException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage() + "\n");
         }
     }
 
@@ -126,11 +128,11 @@ public class Main {
 
         Paciente paciente = pacienteService.findById(id);
         if (paciente == null) {
-            System.out.println("No se encontró el paciente con ID " + id);
+            System.out.println("No se encontró el paciente con ID " + id + "\n");
             return;
         }
 
         pacienteService.delete(id);
-        System.out.println("paciente eliminado exitosamente.");
+        System.out.println("paciente eliminado exitosamente.\n");
     }
 }
